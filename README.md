@@ -11,5 +11,6 @@ Please Note: These files rely on the `create_function()` function within PHP, ho
  deob-1.php | Low-hanging fruit: Back off the first layer of obfuscation by revealing simple function wrappers and beginning to comment out unnecessary code
  deob-2.php | Rolling the wrapped functions back into their parents as far as possible to use only bare PHP functions, as well as the income() function, and keep the $mv and $library intact (for now).
  deob-3.php | Backed off $mv to reveal the $_REQUEST["_wi"] auth mechanism, as well as the various values returned in $_code from function calls, like access and claster.
+ deob-4.php | At this point, we still don't have the password (technically at least), but we have simplified the authentication mechanism quite a bit, which accepts a password via `$_REQUEST['wi']`, and stores it in a cookie that is keyed off a hashed hostname value. At this point, we can make an actual phishing site for the password.
  
  
