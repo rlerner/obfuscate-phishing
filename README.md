@@ -5,6 +5,7 @@ The files contained within this document contain malicious code that was discove
 Please Note: These files rely on the `create_function()` function within PHP, however that has been deprecated in PHP 7 and removed in PHP 8. You may need to download a legacy version of PHP to use these files as they exist here. Your server or host may also disable functions needed for these to execute. These are security decisions and should not be overrode or bypassed.
 
 
+## Deobfuscation of the malware
  File | Description
  --- | ---
  jscarvU7.php | Original, unchanged script
@@ -14,4 +15,10 @@ Please Note: These files rely on the `create_function()` function within PHP, ho
  deob-4.php | At this point, we still don't have the password (technically at least), but we have simplified the authentication mechanism quite a bit, which accepts a password via `$_REQUEST['wi']`, and stores it in a cookie that is keyed off a hashed hostname value. At this point, we can make an actual phishing site for the password.
  deob-5.php | Now, the `income()` method -- this one is a bit more confusing, but I commented it up, added a way to kick out a "binary" of the `$library` property, base64 decoded and EOL trimmed, but not gzinflated or had the password applied against it. I also counted how many cycles it runs to see if it matches the byte count of the binary -- it does. Now, to simplify program control.
  
+ 
+ ## Phishing Site
+ File | Description
+ --- | ---
+ phishing.php | Simply emulates the 404/login form behavior of the above code, except this captures the date, IP, and superglobals like GET/POST and COOKIE to see who is attacking and capture the password
+ request.log | Actual captured output from when we did this, which contains the password if you need it
  
