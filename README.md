@@ -14,6 +14,7 @@ Please Note: These files rely on the `create_function()` function within PHP, ho
  deob-3.php | Backed off $mv to reveal the $_REQUEST["_wi"] auth mechanism, as well as the various values returned in $_code from function calls, like access and claster.
  deob-4.php | At this point, we still don't have the password (technically at least), but we have simplified the authentication mechanism quite a bit, which accepts a password via `$_REQUEST['wi']`, and stores it in a cookie that is keyed off a hashed hostname value. At this point, we can make an actual phishing site for the password.
  deob-5.php | Now, the `income()` method -- this one is a bit more confusing, but I commented it up, added a way to kick out a "binary" of the `$library` property, base64 decoded and EOL trimmed, but not gzinflated or had the password applied against it. I also counted how many cycles it runs to see if it matches the byte count of the binary -- it does. Now, to simplify program control.
+ deob-6.php | Code flow is as deobfuscated as it can be at this point without breaking functionality or having the password. Got rid of the `Set()` object, re-created the constructor in global scope, which made it necessary to move the `$library` to the top. I could most likely remove all of the line feed string replacements at this point, but I just uploaded the code, it doesn't hurt, and I'm not trying to optimize the code as much as make it easy to understand. 
  
  
  ## Phishing Site
@@ -21,4 +22,11 @@ Please Note: These files rely on the `create_function()` function within PHP, ho
  --- | ---
  phishing.php | Simply emulates the 404/login form behavior of the above code, except this captures the date, IP, and superglobals like GET/POST and COOKIE to see who is attacking and capture the password
  request.log | Actual captured output from when we did this, which contains the password if you need it
+ 
+ ## Post-Phished Site Breakdown
+ File | Description
+ --- | ---
+ Never gonna | Give you up
+
+ 
  
