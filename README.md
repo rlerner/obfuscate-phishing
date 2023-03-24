@@ -28,7 +28,7 @@ Please Note: These files rely on the `create_function()` function within PHP, ho
  --- | ---
  postphish-source.php | Spit out what is executed post-authentication above. Stripped all of the unncessary auth and deobfuscation code off of it here and threw a PHP start tag at the beginning.
  postphish-1.php | I was going to fix all the line endings and add tabs (yes, the keyboard's gift to whitespace) but I used a code beautifer instead for brevity.
- postphist-2.php | Got rid of MOST of the hex/octal encodings. Items like quotes and slashes were notably skipped. I'd rather do these by hand since they can easily break the flow of the app.
+ postphish-2.php | Got rid of MOST of the hex/octal encodings. Items like quotes and slashes were notably skipped. I'd rather do these by hand since they can easily break the flow of the app.
  
  
 
